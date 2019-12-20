@@ -37,8 +37,8 @@
     </div>
     <button class="btn btn-success mb-3" type="button" @click="calculate()">Calculate</button>
     <div class="col-12">
-      <h6>Total Balance = {{this.balance}}</h6>
-      <h6>Monthly Payment = {{this.pmt}}</h6>
+      <h6>Total Balance = ${{this.balance}}</h6>
+      <h6>Monthly Payment = ${{this.pmt}}</h6>
     </div>
   </div>
 </template>

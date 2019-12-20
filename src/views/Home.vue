@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home mt-5">
     <h1>Mortgage Calculator</h1>
     <MortgageCalc msg="Welcome to Your Vue.js App" />
   </div>
