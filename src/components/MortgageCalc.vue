@@ -37,8 +37,8 @@
     </div>
     <button class="btn btn-success mb-3" type="button" @click="calculate()">Calculate</button>
     <div class="col-12">
-      <h6>Total Balance = ${{this.balance}}</h6>
-      <h6>Monthly Payment = ${{this.pmt}}</h6>
+      <h6>Total Balance = ${{this.data.balance}}</h6>
+      <h6>Monthly Payment = ${{this.data.paymt}}</h6>
     </div>
   </div>
 </template>
@@ -52,8 +52,7 @@ export default {
       amount: 0,
       interestRate: 0,
       term: 0,
-      balance: 0,
-      pmt: 0,
+      data: {},
       options: [15, 30]
     };
   },
@@ -63,7 +62,6 @@ export default {
       amount = this.amount;
       interest = this.interestRate;
       term = this.term;
-      debugger;
       if (!amount || !interest || !term) return { balance: 0, pmt: 0 };
 
       // Total loan cost in a fixed mortage is:
@@ -76,9 +74,12 @@ export default {
       const r = (interest * 0.01) / 12;
       const n = term * 12;
       const p = amount;
-
-      this.balance = ((r * p * n) / (1 - Math.pow(1 + r, -n))).toFixed(2);
-      this.pmt = (balance / n).toFixed(2);
+      const balance = ((r * p * n) / (1 - Math.pow(1 + r, -n))).toFixed(2);
+      const paymt = (balance / n).toFixed(2);
+      this.data = {
+        balance,
+        paymt
+      };
 
       // Uncomment for debug output
       // console.log({ amount, interest, term });
