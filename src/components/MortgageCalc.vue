@@ -23,11 +23,12 @@
         aria-label="Dollar amount (with dot and two decimal places)"
       />
     </div>
-    <div class="dropdown" v-model="term">
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" value="15" href="#">15</a>
-        <a class="dropdown-item" value="30" href="#">30</a>
-      </div>
+    <div class="form-group">
+      <label for></label>
+      <select class="form-control" v-model="term" name id>
+        <option>15</option>
+        <option>30</option>
+      </select>
     </div>
     <button class="btn btn-success" type="button" @click="calculate()">Calculate</button>
     <div class="col-12">
@@ -47,7 +48,8 @@ export default {
       interestRate: 0,
       term: 0,
       balance: 0,
-      pmt: 0
+      pmt: 0,
+      options: [15, 30]
     };
   },
   computed: {},
