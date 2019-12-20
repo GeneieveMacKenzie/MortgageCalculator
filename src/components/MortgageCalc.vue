@@ -1,36 +1,41 @@
 <template>
   <div class="mortgage-calc">
-    <div class="col-4 input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Amount</span>
+    <div class="row justify-content-center">
+      <div class="col-4 input-group mb-3" align="center">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Amount</span>
+        </div>
+        <input
+          type="text"
+          v-model="amount"
+          class="form-control"
+          aria-label="Dollar amount (with dot and two decimal places)"
+        />
       </div>
-      <input
-        type="text"
-        v-model="amount"
-        class="form-control"
-        aria-label="Dollar amount (with dot and two decimal places)"
-      />
     </div>
-
-    <div class="col-4 input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Interest Rate</span>
+    <div class="row justify-content-center">
+      <div class="col-4 input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Interest Rate</span>
+        </div>
+        <input
+          type="text"
+          v-model="interestRate"
+          class="form-control"
+          aria-label="Dollar amount (with dot and two decimal places)"
+        />
       </div>
-      <input
-        type="text"
-        v-model="interestRate"
-        class="form-control"
-        aria-label="Dollar amount (with dot and two decimal places)"
-      />
     </div>
-    <div class="form-group">
-      <label for></label>
-      <select class="form-control" v-model="term" name id>
-        <option>15</option>
-        <option>30</option>
-      </select>
+    <div class="row mt-3 justify-content-center">
+      <div class="col-4 form-group">
+        <label for>Term</label>
+        <select class="form-control" v-model="term" name id>
+          <option>15</option>
+          <option>30</option>
+        </select>
+      </div>
     </div>
-    <button class="btn btn-success" type="button" @click="calculate()">Calculate</button>
+    <button class="btn btn-success mb-3" type="button" @click="calculate()">Calculate</button>
     <div class="col-12">
       <h6>Total Balance = {{this.balance}}</h6>
       <h6>Monthly Payment = {{this.pmt}}</h6>
